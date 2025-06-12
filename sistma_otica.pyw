@@ -525,7 +525,7 @@ class OticaApp(QWidget):
             QMessageBox.warning(self, "Erro", "Laboratório inválido.")
             return
 
-        # Editar data de compra com máscara e validação
+      
         while True:
             data_compra, ok = input_data_mascarada(self, "Editar Data de Compra", "Data de compra (dd/mm/aaaa):", cliente["data_compra"])
             if not ok or not data_compra.strip():
@@ -541,14 +541,14 @@ class OticaApp(QWidget):
                 continue
             break
 
-        # Editar data de entrega com máscara e validação
+      
         while True:
             data_entrega, ok = input_data_mascarada(self, "Editar Data de Entrega", "Data de entrega (dd/mm/aaaa):", cliente["data_entrega"])
             if not ok:
                 QMessageBox.warning(self, "Erro", "Data de entrega inválida.")
                 return
             if not data_entrega.strip():
-                break  # Permite campo vazio
+                break  
             if not re.match(r"^\d{2}/\d{2}/\d{4}$", data_entrega.strip()):
                 QMessageBox.warning(self, "Erro", "Formato de data inválido. Use dd/mm/aaaa.")
                 continue
@@ -613,7 +613,7 @@ class OticaApp(QWidget):
 
         valor_atual = cliente[campo_chave]
 
-        # Edição conforme o campo
+     
         if campo_chave == "orcamento":
             novo_valor, ok = QInputDialog.getDouble(self, "Editar Orçamento", "Novo orçamento:", value=cliente["orcamento"], decimals=2)
             if ok:
